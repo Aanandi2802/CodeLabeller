@@ -1,0 +1,14 @@
+.scrollable_window {
+  max-height: 20rem;
+  overflow-y: scroll;
+}
+
+.aBtn1 {
+  background-color: rgb(7, 7, 77, 0.9);
+  color: white;
+}
+
+.aBtn2 {
+  background-color: rgb(7, 7, 77, 0.9);
+  color: white;
+}

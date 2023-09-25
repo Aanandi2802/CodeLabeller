@@ -1,0 +1,56 @@
+.main_start {
+  display: flex;
+}
+
+.snippets_start {
+  width: 75%;
+  height: 44rem;
+  overflow-y: scroll;
+  margin-top: 1rem;
+}
+
+.annotations_start {
+  margin-left: 0.2rem;
+  width: 25%;
+}
+
+.annotations_buttons {
+  height: 18.5rem;
+  overflow-y: scroll;
+  border-color: rgba(11, 6, 72, 0.927);
+  border-style: solid;
+  border-radius: 1rem;
+  margin-right: 0.5rem;
+  border-width: 0.2rem;
+}
+
+.buttons_annotate {
+  margin-top: 0.7rem;
+  margin-bottom: 0.7rem;
+  margin-left: 0.4rem;
+  margin-right: 0.4rem;
+}
+
+.annotate_buttons {
+  background-color: rgba(11, 6, 72, 0.927);
+  color: white;
+}
+.annotations_options {
+  height: 15rem;
+  overflow-y: scroll;
+}
+
+.clearAll {
+  background-color: rgb(156, 152, 152);
+  border-color: rgba(11, 6, 72, 0.927);
+  margin-top: 0.3rem;
+}
+.clearAll:hover {
+  background-color: rgb(128, 117, 117);
+}
+
+.option_tags {
+  color: rgba(11, 6, 72, 0.927);
+  font-size: large;
+  margin-right: 1rem;
+}

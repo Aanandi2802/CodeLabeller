@@ -1,0 +1,28 @@
+.custom-navbar {
+  background: rgb(34, 193, 195);
+  background: linear-gradient(90deg, rgb(247, 253, 253) 0%, rgb(3, 3, 35) 70%);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.custom-navbar .navbar-brand {
+  font-size: 24px;
+  color: rgb(3, 3, 35);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+}
+
+.custom-navbar .nav-link {
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.custom-navbar .nav-link:hover {
+  background-color: rgb(7, 7, 77);
+  border-radius: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.custom-navbar .navbar-toggler-icon {
+  background-color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+}

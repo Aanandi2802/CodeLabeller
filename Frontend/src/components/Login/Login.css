@@ -1,0 +1,47 @@
+.lr {
+  background: rgb(34, 193, 195);
+  background: linear-gradient(180deg, rgb(247, 253, 253) 0%, rgb(3, 3, 35) 90%);
+  font-family: "work sans";
+}
+html {
+  font-size: 100%;
+}
+.loading-bg {
+  background-color: #fff;
+}
+.row input {
+  width: 80%;
+  box-sizing: border-box;
+  border: none;
+  font-size: 1.3rem;
+  padding-left: 1.5rem;
+  padding-bottom: 1rem;
+  box-shadow: inset 0px -3px 0px 0px rgba(187, 187, 187, 0.2);
+  transition: box-shadow 0.2s ease-in;
+}
+
+.row input:focus {
+  box-shadow: inset 0px -3px 0px 0px rgb(3, 3, 35, 0.7);
+  outline: none;
+}
+
+.row input::-webkit-input-placeholder {
+  opacity: 1;
+  transition: opacity 0.25s ease-out;
+}
+
+.row input:hover::-webkit-input-placeholder,
+.row input:focus::-webkit-input-placeholder {
+  opacity: 0;
+}
+
+.button-only {
+  background: linear-gradient(180deg, rgb(247, 253, 253) 0%, rgb(3, 3, 35) 60%);
+  border: 0px;
+  cursor: pointer;
+  transition: opacity 0.25s ease-out;
+}
+
+.button-only:hover {
+  opacity: 0.8;
+}

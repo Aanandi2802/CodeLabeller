@@ -1,0 +1,83 @@
+default:
+  image: docker:latest
+  tags:
+    - development
+
+stages:
+  - build
+  - deploy
+
+cache:
+  paths:
+    - node_modules
+
+#.yarn_build:
+#  image: node:10.19.0
+#  script: |
+#    yarn # Install all dependencies
+#    yarn build:${APP_ENV} # Build command
+#  artifacts:
+#    paths:
+#      - ./build
+
+#build_job:
+#  stage: build
+##  before_script:
+##    - export APP_ENV="dev"
+#  image: node:18.14.0
+#  script:
+#    - unset CI
+#    - npm install npm -g
+#    - npm --force cache clear
+#    - rm -rf node_modules
+#    - CI=false npm install --legacy-peer-deps # Install all dependencies
+#    - CI=false npm run build #:${APP_ENV} #Build command
+#  artifacts:
+#    paths:
+#      - build/
+#  only:
+#    - main_frontend
+#
+#
+#
+#deploy_job:
+#  stage: deploy
+#  script:
+#    - echo "React deploy started"
+#    - echo "${DEPLOY_SSH_KEY}"
+#    - eval $(ssh-agent -s)
+#    - ssh-add <(echo "${DEPLOY_SSH_KEY}" | base64 -d)
+#    - ssh-add -l
+#    - scp -r -o StrictHostKeyChecking=no ./ "${DEPLOY_USER}@${DEPLOY_HOST}:/home/csci5308vm8/react_app/"
+#  only:
+#    - main_frontend
+
+services:
+  - docker:dind
+
+variables:
+  CONTAINER_TEST_IMAGE: $CI_REGISTRY_FRONTEND_IMAGE:latest
+
+build_job_docker:
+  stage: build
+  script:
+    - docker login -u ${CI_REGISTRY_USERNAME} -p ${CI_REGISTRY_PASSWORD} ${CI_REGISTRY}
+    - docker build -t $CONTAINER_TEST_IMAGE .
+    - docker push $CONTAINER_TEST_IMAGE
+    - docker logout
+  only:
+    - main_frontend
+
+deploy_job:
+  stage: deploy
+  script:
+    - echo "Maven deploy started"
+    - echo "${DEPLOY_SSH_KEY}"
+    - eval $(ssh-agent -s)
+    - ssh-add <(echo "${DEPLOY_SSH_KEY}" | base64 -d)
+    - ssh-add -l
+    - ssh -o StrictHostKeyChecking=no  csci5308vm8@csci5308vm8.research.cs.dal.ca /home/csci5308vm8/react_app/stop_container.sh
+    - ssh -o StrictHostKeyChecking=no  csci5308vm8@csci5308vm8.research.cs.dal.ca docker pull $CONTAINER_TEST_IMAGE
+    - ssh -o StrictHostKeyChecking=no  csci5308vm8@csci5308vm8.research.cs.dal.ca docker run -d -p 3000:3000 --name react_app --rm $CONTAINER_FRONTEND_TEST_IMAGE_VERSION
+  only:
+    - main_frontend

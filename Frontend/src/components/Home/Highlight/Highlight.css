@@ -1,0 +1,42 @@
+.render_view {
+  font-size: 0.9rem;
+  margin-left: 0.5rem;
+  border-color: rgba(151, 151, 248);
+  border-style: solid;
+  border-width: 0.2rem;
+  margin-right: 0.5rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background-color: #272822;
+  cursor: pointer;
+}
+
+mark {
+  background-color: rgb(255, 255, 0, 0.5);
+}
+.main {
+  display: flex;
+  flex-direction: row;
+}
+.code_shown {
+  width: 100%;
+  background-color: #ccc;
+}
+.annotate {
+  width: 75%;
+  background-color: #eee;
+}
+.annotate_here {
+  width: 75%;
+  background-color: #ccc;
+}
+.buttons_annotate {
+  display: flow-root;
+  justify-content: center;
+}
+button {
+  background-color: rgba(143, 135, 229, 0.927);
+  border-radius: 0.3rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
